@@ -11,21 +11,23 @@
 
 <div id="app">
 
-    <h1>{{msg}}</h1>
-
-    <input type="text" v-model="msg">
+     {{1+1}}
 
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
-        var vm = new Vue({
-            el: "#app",
-            data: {
-                msg: ""
-            }
-        })
+
+
+        //绑定view的方式有两种
+        //第一种： constructor进行指定
+        //第二种: vm实例方法指定$monut
+        let vm = new Vue();
+        //#app2 #app1
+
+        vm.$mount(document.querySelector("#app"))
+
     })()
 
 

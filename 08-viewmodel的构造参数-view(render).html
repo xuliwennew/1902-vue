@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<div id="app"></div>
+
+
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+
+
+
+        let vm3 = new Vue({
+            el:"#app",
+
+            //template render
+            template:"<h1>template view</h1>",//template->compiler->vnode->render->diff->render
+
+            //vnode tree - > render dom - >diff(减少dom操作的一个算法) ->render
+            // render(createElement){
+            //     //createElement是用来生成一个vnode
+            //     let vnodetree = createElement("div",{},[
+            //         createElement("h1",{},"标题是"),
+            //         createElement("p",{},"内容是")
+            //     ])
+            //
+            //     console.log(vnodetree)
+            //     return vnodetree
+            // }
+        })
+
+    })()
+
+
+</script>
+</body>
+</html>

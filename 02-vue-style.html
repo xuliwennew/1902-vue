@@ -8,36 +8,36 @@
 </head>
 <body>
 
-    //vue 是用数据来驱动ui
-    
-    <!---创建一个view-->
-    <div id="app">
-      
-        //抽象这个view -> a model of view ->属性和方法
-        <h1>{{title}}</h1>
-    </div>
+//vue 是用数据来驱动ui
 
-    <div id="app2"></div>
+<!---创建一个view-->
+<div id="app">
 
-    <script src="node_modules/vue/dist/vue.js"></script>
+    //抽象这个view -> a model of view ->属性和方法
+    <h1>{{title}}</h1>
+</div>
 
-    <script>
-        //mvvm view -> viewmodel view->viewmodel
-        (function(){
-            //2 . view -> a model of view title
-            let vm = new Vue({
-                el:"#app",
-                data:{
-                    title:"hello vue"
-                }
-            }) //创建一个空的viewmodel 
+<div id="app2"></div>
 
-            let vm2 = new Vue({
-                el:"#app2"
-            })
+<script src="node_modules/vue/dist/vue.js"></script>
 
-            //vue中有如下规则, 一个项目只有一个viewmodel
-        })()
-    </script>
+<script>
+    //mvvm view -> viewmodel view->viewmodel
+    (function () {
+        //2 . view -> a model of view title
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                title: "hello vue"
+            }
+        }) //创建一个空的viewmodel
+
+        let vm2 = new Vue({
+            el: "#app2"
+        })
+
+        //vue中有如下规则, 一个项目只有一个viewmodel
+    })()
+</script>
 </body>
 </html>

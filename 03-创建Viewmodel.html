@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>view</title>
+</head>
+<body >
+
+ <div id="app">
+     <h1>{{ 1+1 }}</h1>
+     <div id="app2">
+         <h1>{{ 1+1 }}</h1>
+     </div>
+ </div>
+
+
+
+
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+    <script>
+
+        (function(){
+
+            //创建一个viewmodel view->viewmodel
+
+            //7个构造参数
+            // viewmodel是用来管理view
+            let vm = new Vue({
+                //指定viewmodel的管理 范围
+                //viewmodel的view的位置,view是app内部部份
+               // el:"#app" // document.querySelector("#app")
+                //mount
+                el:document.querySelector("#app")
+
+
+            })
+
+            console.log(vm)
+
+            let vm2 = new Vue({
+                el:"#app2"
+            })
+
+        })()
+    </script>
+</body>
+</html>

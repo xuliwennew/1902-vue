@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app1">
+    <h1>app1</h1>
+</div>
+
+<div id="app"></div>
+
+<template id="tpl">
+    <h1>template 内容</h1>
+</template>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+        //第种创建视图的方式
+        let vm1 = new Vue({
+            el:"#app1"
+        })
+
+        //MVVM view的创建的二种方式
+        let vm = new Vue({
+            el:"#app",
+            data:{
+               title:"内部的视图"
+            },
+            // template:`<h1>
+            //
+            //  {{title}}</h1>`,
+            template:"#tpl"  //template一种template,string,
+        })
+
+        //第三种创建view方式 Vnode
+
+        let vm3 = new Vue({
+            el:"#app",
+            render(createElement){
+                //createElement是用来生成一个vnode
+                let vnodetree = createElement("h1",{},"vnode view")
+
+                console.log(vnodetree)
+                return vnodetree
+            }
+        })
+
+    })()
+
+
+</script>
+</body>
+</html>
