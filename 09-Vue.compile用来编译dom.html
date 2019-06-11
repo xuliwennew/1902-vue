@@ -18,6 +18,30 @@
 <script>
     (function () {
 
+        //创建view model view viewmodel
+
+        let res = Vue.compile("<div><h1>{{ title }}</h1></div>")
+        //res.render
+
+        new Vue({
+            el:"#app",
+            data:{
+               title:"template render ......."
+            },
+            render:res.render,
+            staticRenderFns: res.staticRenderFns
+        })
+
+        //el data methods template render(component)
+
+
+        //viewmodel中的data ,methods 如何绑定到view?
+
+
+        // vue-template-compiler
+        // interpolation expression 模板表达式 {{}} 插值表达式
+
+
     })()
 
 

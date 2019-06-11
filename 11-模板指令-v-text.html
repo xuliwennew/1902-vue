@@ -11,12 +11,22 @@
 
 <div id="app">
 
-
+    <h1 v-text="title">loading...</h1>
+    <div v-html="content">loading....</div>
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+
+        new Vue({
+            el:"#app",
+            data:{
+                title:"hello",
+                content:"<h1>hello content</h1>"
+            }
+        })
 
     })()
 

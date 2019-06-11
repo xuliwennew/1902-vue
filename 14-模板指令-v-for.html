@@ -11,12 +11,42 @@
 
 <div id="app">
 
+    <ul>
+        <li v-for="(s,sid) in students">
+            <h1>{{sid}},{{s.name}}</h1>
+            <ul>
+                <li v-for="(c,cid) in s.cources">{{cid}}:{{c}}</li>
+            </ul>
+        </li>
+    </ul>
 
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+        new Vue({
+            el:"#app",
+            data:{
+               students:[
+                   {
+                       name:"张三",
+                       cources:["vue","angular","react"],
+
+                   },
+                   {
+                       name:"李四",
+                       cources:["node","express","mongodb"]
+                   },
+                   {
+                       name:"王五",
+                       cources:["java","structs","mybatis"]
+                   }
+               ]
+
+            }
+        })
 
     })()
 

@@ -11,12 +11,33 @@
 
 <div id="app">
 
+    <div v-if="flag">新闻列表</div>
+    <div v-else>没有了....</div>
 
+    <hr>
+    您所学习的课程是:
+    <ul >
+        <li v-if="cource=='react'">React</li>
+        <li v-else-if="cource == 'vue'">vue</li>
+        <li v-else-if="cource == 'angular'">angular</li>
+        <li v-else>没有选择课程</li>
+    </ul>
+
+    <div v-show="false">v-show something</div>
+    <div v-show="false">v-show something</div>
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+        new Vue({
+            el:"#app",
+            data:{
+                flag:false,
+                cource:"node"
+            }
+        })
 
     })()
 

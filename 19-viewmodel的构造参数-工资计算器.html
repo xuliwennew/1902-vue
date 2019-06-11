@@ -10,13 +10,37 @@
 <body>
 
 <div id="app">
+  <div>
+      <h1>工资计算器</h1>
+      本月工资: <input type="number" v-model="taxSalary">
+      <hr>
+      累计应缴税款 : <input type="number" v-model="taxMoney"> <br>
+      本月税后收入: <input type="number" v-model="money">
 
+  </div>
 
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+        new Vue({
+            el:"#app",
+            data:{
+                taxSalary:0
+            },
+            computed:{
+                //累计应缴税款
+                taxMoney(){
+                   //(本月工资 - 5000 - 1000) * 0.03 - 0
+                   return (this.taxSalary - 5000 - 1000)  * 0.03
+                },
+                money(){
+                   return this.taxSalary - 1000 - this.taxMoney
+                }
+            }
+        })
 
     })()
 

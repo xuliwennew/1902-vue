@@ -6,17 +6,27 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <title>Title</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<div id="app">
+<div id="app" v-cloak>
 
+    {{1+1}}
 
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+        new Vue({
+            el:"#app"
+        })
 
     })()
 

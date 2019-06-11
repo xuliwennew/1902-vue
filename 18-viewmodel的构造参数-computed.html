@@ -10,14 +10,35 @@
 <body>
 
 <div id="app">
+    <input type="text" v-model="money">
+    工资: {{money}}
+    工资: {{formatMoney1()}}
 
-
+    工资: {{formatMoney2}}
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
 
+        new Vue({
+            el:"#app",
+            data:{
+                money:5000
+            },
+            methods:{
+                formatMoney1(){
+                    return this.money + "RMB"
+                }
+            },
+            computed:{
+                //这个方法就可以当做一个属性来用
+                formatMoney2(){
+                    //对原始数据进行计算后返回一个新的数据
+                    return this.money *.6 + "RMB"
+                }
+            }
+        })
     })()
 
 

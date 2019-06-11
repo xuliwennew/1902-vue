@@ -10,13 +10,103 @@
 <body>
 
 <div id="app">
+    //input blur
+    <hr>
+    用户名： <input type="text"  v-model="loginForm.username">
+    <hr>
+    密码 :  <input type="password" v-model="loginForm.password" >
+    <hr>
+    性别 :  男: <input v-model="loginForm.sex" type="radio" name="sex" value="male" > 女: <input v-model="loginForm.sex" type="radio" name="sex" value="female" >
+    <hr>
+    课程: <div v-for="c in cources"><input v-model="loginForm.sCource" type="checkbox"  :value="c"> {{c}} </div>
 
+    <hr>
+    城市 :
+    省：
+    <select v-model="loginForm.selectAddr.p">
+       <option  v-for="p in addrs" :value="p">{{p.provinceName}}</option>
+    </select>
+    市：
+    <select v-model="loginForm.selectAddr.c">
+        <option v-for="c in loginForm.selectAddr.p.cities"  :value="c">{{c.cityName}}</option>
+    </select>
+
+    区：
+    <select>
+       <option v-for="a in loginForm.selectAddr.c.areas">{{a}}</option>
+    </select>
+
+    <hr>
+    <button>保存用户信息</button>
+
+    <hr>
+    {{loginForm}}
 
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                addrs:[
+                    {
+                        provinceName:"陕西省",
+                        cities:[
+                            {
+                                cityName:"西安市",
+                                areas:[
+                                    "高新区",
+                                    "长安区"
+                                ]
+                            },
+                            {
+                                cityName:"咸阳市",
+                                areas:[
+                                    "咸阳区1",
+                                    "咸阳区2"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        provinceName:"山西省",
+                        cities:[
+                            {
+                                cityName:"太原市",
+                                areas:[
+                                    "太原市区1",
+                                    "太原市区2"
+                                ]
+                            },
+                            {
+                                cityName:"运城市",
+                                areas:[
+                                    "运城市区1",
+                                    "运城市区2"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                cources:["vue","react"],
+                //双向绑定的 observer
+                loginForm:{
+                    username:"",
+                    password:"",
+                    sex:"male",
+                    sCource:[],
+                    selectAddr:{
+                        p:"",
+                        c:"",
+                        a:""
+                    }
+
+                }
+            }
+        })
 
     })()
 

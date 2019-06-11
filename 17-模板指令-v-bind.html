@@ -11,12 +11,20 @@
 
 <div id="app">
 
+     <img  :src="picurl">
 
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+        new Vue({
+            el:"#app",
+            data:{
+                picurl:"asset/icon-kin.png"
+            }
+        })
 
     })()
 

@@ -11,12 +11,26 @@
 
 <div id="app">
 
+    <input type="number" v-model="money">
 
 </div>
 
 <script src="node_modules/vue/dist/vue.js"></script>
 <script>
     (function () {
+
+        new Vue({
+            el:"#app",
+            data:{
+                money:1000
+            },
+            watch:{
+                //
+                "money":(n,o)=>{
+                    console.log(n,o)
+                }
+            }
+        })
 
     })()
 
