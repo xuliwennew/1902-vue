@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "start":"node static-server.js"
+    "start": "node static-server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "swiper": "^4.5.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {

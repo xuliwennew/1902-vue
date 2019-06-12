@@ -11,7 +11,7 @@
 
 <div id="app">
 
-    <input type="number" v-model="money">
+    <h1>{{ 50000 | cRMB }}</h1>
 
 </div>
 
@@ -19,19 +19,26 @@
 <script>
     (function () {
 
-        //js GC
-        let vm = new Vue({
+        //过滤器是用于在页面上直接对需要过滤的数据进行处理，并返回新的结果
+        Vue.filter("cRMB",(val)=>{
+            console.log(val)
+            return val *.6
+        })
+
+
+        new Vue({
             el:"#app",
             data:{
-                money:1000
+                money:10000 // api dolar - > rmb
             },
-            watch:{
-                //
-                "money":(n,o)=>{
-                    console.log(n,o)
+            computed:{
+                formatMoney(){
+                    return this.money * 0.6
                 }
             }
         })
+
+
 
     })()
 

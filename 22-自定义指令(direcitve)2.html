@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+
+    <div v-bg="'red'" v-drag  >hello</div>
+
+    <div v-bg="'blue'" v-drag>hello</div>
+    <div v-bg="'yellow'" v-drag>hello</div>
+    <div v-bg="'green'" v-drag>hello</div>
+    <div v-bg="'pink'" v-drag>hello</div>
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+
+
+        //修改背景 bg
+        Vue.directive("bg",(el,binding)=>{
+            el.style.backgroundColor = binding.value
+            el.style.width = "300px"
+            el.style.height = "300px"
+            el.innerText = "hello world"
+        })
+
+        Vue.directive("drag",(el,binding)=>{
+
+            el.onmousedown = function (e) {
+                el.style.position="absolute"
+
+                console.log(e.clientX - el.offsetLeft)
+                var startX = e.clientX - el.offsetLeft
+                var startY = e.clientY - el.offsetTop
+
+                document.onmousemove = function (e) {
+                    var endX = e.clientX - startX
+                    var endY = e.clientY - startY
+
+                    el.style.left = endX + "px"
+                    el.style.top = endY + 'px'
+                }
+
+                document.onmouseup = function () {
+                    document.onmousemove = null
+                    document.onmouseup = null
+                }
+            }
+        })
+
+        new Vue({
+            el:"#app"
+        })
+
+    })()
+
+
+</script>
+</body>
+</html>
