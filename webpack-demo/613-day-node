@@ -1,0 +1,108 @@
+REACT
+
+ANGULAR
+
+TYPESCRIPT
+
+VUE
+
+props type number default
+
+safari word unix
+
+lucence
+
+
+props
+
+name="" string
+
+
+props vs state
+
+component
+
+props
+state 数据驱动 local state
+
+
+webpack gulp
+
+打包 .exe .jar .tar .dll c++ c apk ipa
+
+website vue->v.pwa 息影     PWA
+
+webpack - website static file -> bundle.js
+
+css js html sass image fonts ->
+
+webpack 3 webpack4
+webpack is hard life is short
+
+gulp 构建工具 task concat mini sass
+
+
+不同的文件打包
+webpack模块化
+
+commonjs / e6 -> webpack - >
+
+1, npm install webpack webpack-cli -g
+
+
+webpack js json
+
+js  + css = bundle.js
+
+vue-loader
+ .vue
+
+vue 2016 component + vue1x
+
+component
+
+asp.net  jsp
+delphi vb.net springmvc
+
+2009 nodejs angular mvvm + component directive
+
+bootstrap card
+
+component = ui + uilogic + css
+
+vue angular react ->web component
+
+
+
+b.js
+
+.box {
+}
+
+
+a.css - > cssLoader-> a.js
+a.jpg ->fileloader-> a.js
+a.html - >htmlloader-> a.js
+
+css-loader 读 xx.css  :root {
+    background-color: red;
+}
+
+style-loader css - js -> html head style
+babel-loader
+
+ruby
+sass-loader node-sass  css-loader style-loader
+
+ruby php python lua exe
+
+
+
+webpack vue-loader
+
+npm install vue
+
+npm install vue-template-compiler
+
+npm install webpack webpack-cli
+
