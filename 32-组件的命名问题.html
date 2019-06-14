@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+   <myheader></myheader>
+
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+
+        /**
+         * 1, 有意思, 长一点好一点
+         * 2, 不要使用HTML的关键字 header footer section class 可以加上标签 前缀 v-xx x-header
+         * 3, 标签名和组件的定义的变量名，可以是相同的，也可以不同
+         * 4. 标签名的命名，如果是一个单词，只接小写 hello,如果是两个以上的单词的组合 helloworld
+         *    使用 kebab case 串串式写法 hello-world vue-is-funny
+         */
+
+
+
+        // camaral case /pascal case
+        let header = {
+            template:"<h1>hello </h1>"
+        }
+
+
+        new Vue({
+            el:"#app",
+            components:{
+                "myheader":header
+            }
+        })
+
+
+
+    })()
+
+
+</script>
+</body>
+</html>

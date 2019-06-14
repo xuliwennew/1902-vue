@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+   <hello></hello>
+
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+
+         let hello = {
+             name:"hello",
+             //基本结构 mvvm el
+               template:"<div><h1 @click='show'>{{formatTitle}}</h1><input type='text' v-model='title'></div>",
+             // render(createElement){
+             //     return createElement("h1",{},"hello world")
+             // }
+             data(){
+                 //每个组件中的data应该是独立的 data:{}
+                 return {
+                     title:"hello world"
+                 }
+             },
+             methods:{
+                 show(){
+                     alert(1)
+                 }
+             },
+             computed:{
+                 formatTitle(){
+                     return this.title + "!"
+                 }
+             },
+             watch:{
+                 "title":function (n,o) {
+                     console.log(n,o)
+                 }
+             }
+         }
+
+         new Vue({
+             el:"#app",
+             components:{
+                 hello
+             }
+         })
+
+    })()
+
+
+</script>
+</body>
+</html>

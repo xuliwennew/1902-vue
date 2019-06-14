@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    用户名： <input type="text" v-model="user.name"> <br><br>
+    介绍: <textarea v-model="user.content"></textarea><br><br>
+    <button @click="saveUser">添加用户</button>
+    <hr>
+    <user v-for="(u,index) in usersList" :del="delUserByID" :show="show" :data="u" :idx="index" :key="index"></user>
+
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+
+
+
+         let user = {
+              // data(){
+              //     return {
+              //       name:"张三"
+              //     }
+              // },
+              props:["name","content","data","show","idx","del"],  //申明组件 的输入属性
+              template:"<div @click='del(idx)'><h1>{{data.name}}</h1><p>{{data.content}}</p></div>",
+
+         }
+
+         //组件的封装，就是一种function处理方式 vue componet == react componnet
+
+
+
+
+         new Vue({
+             el:"#app",
+             components:{
+                 user
+             },
+             data:{
+                 user:{
+                   name:"",
+                   content:""
+                 },
+                 usersList :[
+                     {name:"张三",content:"张三正在。。"},
+                     {name:"李四",content:"李四正在。。"}
+                 ]
+             },
+             methods:{
+                 show(i){
+                   alert(this.usersList[i].name)
+                 },
+                 delUserByID(i){
+                     this.usersList.splice(i,1)
+                 },
+                 saveUser(){
+                    this.usersList.push(this.user)
+                 }
+             }
+         })
+
+    })()
+
+
+</script>
+</body>
+</html>
