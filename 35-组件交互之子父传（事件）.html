@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+   <news-list></news-list>
+
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+        let newsItem = {
+            props:["data","idx"], //输入接口 title
+            methods:{
+               del(id){
+                   this.$emit("del",id) //子组件的触发父组件的中的del事件绑定
+               }
+            },
+            template:"<li><h1>{{data.title}}</h1><a @click='del(idx)'>删除</a></li>"
+        }
+
+
+        let newsList = {
+            data(){
+               return {
+                   lists:[
+                       {
+                           title:"新闻一"
+                       },
+                       {
+                           title:"新闻二"
+                       }
+                   ]
+               }
+            },
+            methods:{
+               del(id){
+                   console.log(id)
+                   //del sql cabll
+                   this.lists.splice(id,1)
+
+                   //$on("del",del)
+               }
+            },
+            template: `<ul>
+         <news-item @del="del" :key="index" :data="n" :idx="index" v-for="(n,index) in lists"></news-item>
+</ul>`  ,
+            components:{
+                newsItem
+            }
+        }
+
+
+        new Vue({
+            el:"#app",
+            components:{
+                newsList
+            }
+        })
+
+
+    })()
+
+
+</script>
+</body>
+</html>

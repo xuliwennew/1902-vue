@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+
+    <a @click="toggle('one')">one</a> || <a @click="toggle('two')">two</a>
+    <hr>
+    <!--<one v-if="flag == 'one'"></one>-->
+    <!--<two v-else-if="flag == 'two'"></two>-->
+    <div :is="flag"></div>
+
+
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+
+
+        let two = {
+            template:"<div><h1>two component</h1></div>",
+        }
+
+
+
+        let one = {
+            template:"<div><h1>one component</h1></div>",
+        }
+
+        //is="组件名"
+
+        new Vue({
+            el:"#app",
+            components:{
+               one,
+                two
+            },
+            data:{
+                flag:"one"
+            },
+            methods:{
+                toggle(f){
+                    this.flag = f;
+                }
+            }
+        })
+
+
+
+
+    })()
+
+
+</script>
+</body>
+</html>

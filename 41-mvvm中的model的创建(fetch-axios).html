@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+
+</head>
+<body>
+
+<div id="app">
+
+
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+
+    fetch("http://localhost:3000/api")
+        .then(response=>{ //00000
+            response.json().then(data=>{
+                console.log(data)
+            })
+        })
+
+
+</script>
+</body>
+</html>

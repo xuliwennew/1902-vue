@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+
+    <one>
+
+    </one>
+
+    <two>
+
+    </two>
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+
+        //事件处理总线 主要的是进行跨进行传值用的
+        // line one  @on("a") @on("b")
+
+
+
+        //创建一个viewmodel，只个viewmodel只用来做事件的绑定和事件触发
+        // 事件总线
+        let vm = new Vue()
+
+        vm.$on("a",()=>{
+            console.log("a")
+        })
+
+        vm.$emit("a")
+        vm.$emit("a")
+        vm.$off("a")
+        vm.$emit("a")
+
+        let one ={
+            template:"<h1>one</h1>",
+            mounted(){
+                this.$eventbus.$on("t",()=>{
+                    console.log("one 收到了")
+                })
+                console.log(this.$eventbus)
+            }
+        }
+
+        let two ={
+            template:"<h1 @click='sendToOne'>two</h1>",
+            mounted(){
+                console.log(this.$eventbus)
+            },
+            methods:{
+                sendToOne(){
+                    this.$eventbus.$emit("t")
+                }
+            }
+        }
+
+        //创建一个事件总线
+        Vue.prototype.$eventbus = new Vue()
+        new Vue({
+            el:"#app",
+            components:{
+                one,
+                two
+            }
+        })
+
+
+    })()
+
+
+</script>
+</body>
+</html>
