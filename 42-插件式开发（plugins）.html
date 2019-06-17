@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+
+</head>
+<body>
+
+<div id="app">
+
+    <button @click="show">click me</button>
+    <swiper></swiper>
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+        //transition keepalive
+        //给vue 扩展一些实例方法，或者属性
+        // this.$remove()
+
+
+        /**
+         * 1, 创建一个模块 ，xx.install= function(Vue)
+         * 2, Vue.use(xx)
+         */
+
+        let testPlugin= {
+            install:function (Vue) {
+              Vue.prototype.$remove = function () {
+                  alert(2)
+              }
+
+              Vue.component("swiper",{
+                  template:"<h1>swiper</h1>"
+              })
+            }
+        }
+
+
+
+        Vue.use(testPlugin)
+
+        var vm= new Vue({
+            el:"#app",
+            methods:{
+                show(){
+                    this.$remove()
+                }
+            }
+        })
+    })()
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+
+</head>
+<body>
+
+<div id="app">
+   <button @click="callHello">call hello methods</button>
+
+    <div ref="d">test ref</div>
+    <hello ref="h"/>
+</div>
+
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+
+    // var h = new hello()
+    (function () {
+        let hello = {
+            data(){
+                return {
+                    msg:"hello msg"
+                }
+            },
+            methods:{
+                show(){
+                    alert(this.msg)
+                }
+            },
+            template:"<h1>hello component</h1>"
+        }
+
+        new Vue({
+            el:"#app",
+            components:{
+                hello
+            },
+            methods:{
+                callHello(){
+                    console.log(this.$refs)
+                    //
+                    // this.$refs.h.show()
+
+                    this.$refs.d.style.color = "red"
+                }
+            }
+        })
+    })()
+
+</script>
+</body>
+</html>

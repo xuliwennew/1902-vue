@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>vue+swiper</title>
+    <link rel="stylesheet" href="node_modules/swiper/dist/css/swiper.css">
+
+    <style>
+        .swiper-container {
+            width: 100%;
+            height:300px;
+        }
+
+        .box1 {
+            background-color: red;
+        }
+        .box2 {
+            background-color: blue;
+        }
+        .box3 {
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+
+    <vue-swiper :opts="opts1"></vue-swiper>
+    <vue-swiper :opts="opts2"></vue-swiper>
+</div>
+
+<script src="node_modules/swiper/dist/js/swiper.js"></script>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    (function () {
+
+        let VueSwiper ={
+            template:`<div class="swiper-container" ref="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide box1"></div>
+            <div class="swiper-slide box2"></div>
+            <div class="swiper-slide box3"></div>
+        </div>
+
+        <div class="swiper-pagination" ref="p"></div>
+    </div>`,
+            props:{
+                opts:{
+                    type:Object
+                }
+            },
+            mounted(){
+                console.log(this.opts)
+                new Swiper(this.$refs.swiper,this.opts)
+            }
+        }
+
+
+        new Vue({
+            el:"#app",
+            components:{
+                VueSwiper
+            },
+            data:{
+                opts1:{
+                    direction:"horizontal",
+                    effect:"cube",
+                    pagination:{
+                        el:".swiper-pagination"
+                    },
+                    autoplay:true,
+                },
+                opts2:{
+                    direction:"vertical",
+                    effect:"flip",
+                    pagination:{
+                        el:".swiper-pagination"
+                    }
+                }
+            }
+
+        })
+
+
+    })()
+
+
+</script>
+</body>
+</html>
