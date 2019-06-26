@@ -5,10 +5,10 @@ const {VueLoaderPlugin} = require("vue-loader")
 //.js .css .json
 module.exports = {
     mode:"development", //production
-    entry:path.resolve(__dirname,"router-demo/main.js"),
+    entry:path.resolve(__dirname,"single-component/main.js"),
     output:{
         filename:"app.bundle.js",
-        path:path.resolve(__dirname,"router-demo")
+        path:path.resolve(__dirname,"single-component")
     },
     resolve:{
        extensions:[".css",".js",".vue"]
